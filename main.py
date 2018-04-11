@@ -1,6 +1,7 @@
 import numpy as np
 import time
 
+
 impossible_array = np.array([[-1, -1, -1, -1, -1, -1, -1, -1, -1],
                             [-1, -1, -1, -1, -1, -1, -1, -1, -1],
                             [-1, -1, -1, -1, -1, -1, -1, -1, -1],
