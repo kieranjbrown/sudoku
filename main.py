@@ -1,16 +1,6 @@
 import numpy as np
 import time
 
-unsolved_sudoku = np.array([[0, 0, 4, 3, 0, 0, 2, 0, 9],
-                            [0, 0, 5, 0, 0, 9, 0, 0, 1],
-                            [0, 7, 0, 0, 6, 0, 0, 4, 3],
-                            [0, 0, 6, 0, 0, 2, 0, 8, 7],
-                            [1, 9, 0, 0, 0, 7, 4, 0, 0],
-                            [0, 5, 0, 0, 8, 3, 0, 0, 0],
-                            [6, 0, 0, 0, 0, 0, 1, 0, 5],
-                            [0, 0, 3, 5, 0, 8, 6, 9, 0],
-                            [0, 4, 2, 9, 1, 0, 3, 0, 0]])
-
 impossible_sudoku = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -175,31 +165,3 @@ def solve(fixed_values_sudoku, possible_values_sudoku):
 
     #triggers the backtracking if it return false
     return False
-
-
-#print(sudoku_solver(unsolved_sudoku))
-
-initial_sudokus = np.load("sudokus.npy")
-solutions = np.load("solutions.npy")
-
-start = time.time()
-for test in range(0, 100):
-    print(np.array_equal(sudoku_solver(initial_sudokus[test]), solutions[test]))
-
-print(time.time() - start)
-
-thousand_sudokus = np.load("sudoku-sample-1000.npy")
-
-start = time.time()
-for test in range(0,1000):
-    print(sudoku_solver(thousand_sudokus[test]))
-
-print(time.time() - start)
-
-impossible_sudokus = np.load("sudoku-sample-15-unsolvable.npy")
-
-start = time.time()
-for test in range(0, 15):
-    print(sudoku_solver(impossible_sudokus[test]))
-
-print(time.time() - start)
